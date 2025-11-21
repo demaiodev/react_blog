@@ -1,6 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { getPost, getComments } from "../api/posts";
+import { getPost } from "../api/posts";
 import Loading from "../components/Loading";
 import ErrorBanner from "../components/ErrorBanner";
 
@@ -14,12 +14,6 @@ export default function PostView() {
   } = useQuery({
     queryKey: ["post", id],
     queryFn: () => getPost(id!),
-    enabled: !!id,
-  });
-
-  const { data: comments, isLoading: commentsLoading } = useQuery({
-    queryKey: ["comments", id],
-    queryFn: () => getComments(id!),
     enabled: !!id,
   });
 
@@ -46,16 +40,14 @@ export default function PostView() {
       <section>
         <h3 className="text-lg font-semibold">Comments</h3>
         <div className="mt-3 space-y-3">
-          {commentsLoading ? (
-            <Loading label="Loading comments…" />
-          ) : comments && comments.length > 0 ? (
-            comments.map((c) => (
+          {post && post.comments.length !== 0 ? (
+            post.comments.map((c) => (
               <div key={c.id} className="bg-white p-3 rounded shadow-sm">
-                <div className="text-sm font-medium">{c.author}</div>
+                <div className="text-sm font-medium">{c.author_name}</div>
                 <div className="text-sm text-slate-600">
-                  {new Date(c.created_at).toLocaleString()}
+                  {new Date(c.created_date).toLocaleString()}
                 </div>
-                <p className="mt-2 text-slate-700">{c.content}</p>
+                <p className="mt-2 text-slate-700">{c.text}</p>
               </div>
             ))
           ) : (

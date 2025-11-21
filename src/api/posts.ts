@@ -5,14 +5,15 @@ export type Post = {
   title: string;
   content: string;
   published_date?: string | null;
+  comments: Comment[];
 };
 
 export type Comment = {
   id: number;
   post: number;
-  author: string;
-  content: string;
-  created_at: string;
+  author_name: string;
+  text: string;
+  created_date: string;
 };
 
 async function handleResp(res: Response) {
@@ -23,29 +24,44 @@ async function handleResp(res: Response) {
   return res.json();
 }
 
-export function getPosts(): Promise<Post[]> {
-  return fetch(`${API_BASE}/api/posts/`).then(handleResp);
+export async function getPosts(): Promise<Post[]> {
+  const res = await fetch(`${API_BASE}/api/posts/`);
+  return handleResp(res);
 }
 
-export function getPost(id: string | number): Promise<Post> {
-  return fetch(`${API_BASE}/api/posts/${id}/`).then(handleResp);
+export async function getPost(id: string | number): Promise<Post> {
+  const res = await fetch(`${API_BASE}/api/posts/${id}/`);
+  return handleResp(res);
 }
 
-export function getComments(postId: string | number): Promise<Comment[]> {
-  return fetch(`${API_BASE}/api/posts/${postId}/comments/`).then(handleResp);
-}
-
-export function createPost(payload: { title: string; content: string }) {
-  return fetch(`${API_BASE}/api/posts/`, {
+export async function createPost(payload: { title: string; content: string }) {
+  const res = await fetch(`${API_BASE}/api/posts/`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload),
-  }).then(handleResp);
+  });
+  return handleResp(res);
+}
+
+export async function createComment(payload: {
+  author: string;
+  comment: string;
+  postId: number;
+}) {
+  const res = await fetch(`${API_BASE}/api/comments/`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      post_id: payload.postId,
+      author_name: payload.author,
+      text: payload.comment,
+    }),
+  });
+  return handleResp(res);
 }
 
 export default {
   getPosts,
   getPost,
-  getComments,
   createPost,
 };

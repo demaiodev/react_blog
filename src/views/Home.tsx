@@ -12,15 +12,6 @@ export default function Home() {
 
   return (
     <div>
-      <div className="mb-6 flex items-center justify-between">
-        <div>
-          <h1 className="text-3xl font-bold">Latest Posts</h1>
-          <p className="text-sm text-slate-500">
-            Curated posts from your Django backend (mocked for now).
-          </p>
-        </div>
-      </div>
-
       {isLoading && <Loading label="Loading posts…" />}
       {isError && <ErrorBanner message={(error as Error).message} />}
 
