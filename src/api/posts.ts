@@ -14,6 +14,7 @@ export type Comment = {
   author_name: string;
   text: string;
   created_date: string;
+  flagged: boolean;
 };
 
 async function handleResp(res: Response) {
