@@ -39,7 +39,7 @@ export default function PostView() {
       </article>
 
       <section>
-        <h3 className="font-semibold mb-6 text-lg">Add a Comment</h3>
+        <h2 className="font-semibold mb-6 text-lg">Add a Comment</h2>
         <CreateComment postId={parseInt(id!)} />
       </section>
 
