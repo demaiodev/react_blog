@@ -27,7 +27,7 @@ export default function CreatePost() {
 
   return (
     <div className="max-w-xl mx-auto">
-      <h2 className="text-2xl font-semibold mb-4">Create Post</h2>
+      <h2 className="text-xl font-semibold mb-4">Create Post</h2>
 
       {mutation.status === "pending" ? (
         <Loading label="Creating post…" />

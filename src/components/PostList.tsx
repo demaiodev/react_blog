@@ -13,8 +13,7 @@ export default function PostList({ posts }: { posts: Post[] }) {
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-6">
-        <h2 className="text-xl font-semibold">Posts</h2>
+      <div className="flex items-center justify-end mb-6">
         <div className="flex items-center gap-2">
           <label htmlFor="sort-select" className="text-sm text-slate-600">
             Sort:

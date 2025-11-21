@@ -15,10 +15,16 @@ export default function Header() {
             Home
           </Link>
           <Link
+            to="/moderation"
+            className="text-slate-600 hover:text-slate-900 px-3 py-2 rounded-md"
+          >
+            Moderation
+          </Link>
+          <Link
             to="/create"
             className="bg-slate-600 text-white p-2 rounded-md hover:bg-slate-900"
           >
-            New Post
+            + New Post
           </Link>
         </nav>
       </div>

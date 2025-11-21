@@ -61,6 +61,11 @@ export async function createComment(payload: {
   return handleResp(res);
 }
 
+export async function getFlaggedComments(): Promise<Comment[]> {
+  const res = await fetch(`${API_BASE}/api/comments/flagged/`);
+  return handleResp(res);
+}
+
 export default {
   getPosts,
   getPost,

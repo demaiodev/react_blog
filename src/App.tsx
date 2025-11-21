@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./views/Home";
 import PostView from "./views/PostView";
 import CreatePost from "./views/CreatePost";
+import Moderation from "./views/Moderation";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/posts/:id" element={<PostView />} />
           <Route path="/create" element={<CreatePost />} />
+          <Route path="/moderation" element={<Moderation />} />
         </Routes>
       </main>
     </div>
