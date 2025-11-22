@@ -4,6 +4,7 @@ import { getPost } from "../api/posts";
 import Loading from "../components/Loading";
 import ErrorBanner from "../components/ErrorBanner";
 import CreateComment from "../components/CreateComment";
+import { STALE_TIME_MS } from "../config";
 
 export default function PostView() {
   const { id } = useParams();
@@ -16,6 +17,7 @@ export default function PostView() {
     queryKey: ["post", id],
     queryFn: () => getPost(id!),
     enabled: !!id,
+    staleTime: STALE_TIME_MS,
   });
 
   if (isLoading) return <Loading label="Loading post…" />;

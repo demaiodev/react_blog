@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getFlaggedComments } from "../api/posts";
 import Loading from "../components/Loading";
 import ErrorBanner from "../components/ErrorBanner";
+import { STALE_TIME_MS } from "../config";
 
 export default function Moderation() {
   const {
@@ -12,6 +13,7 @@ export default function Moderation() {
   } = useQuery({
     queryKey: ["flagged-comments"],
     queryFn: getFlaggedComments,
+    staleTime: STALE_TIME_MS,
   });
 
   if (isLoading) return <Loading label="Loading flagged comments…" />;
