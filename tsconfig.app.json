@@ -1,11 +1,13 @@
 {
+  "include": ["src", "**/*.ts", "cypress/**/*.ts", "*.ts"],
+  "exclude": ["node_modules"],
   "compilerOptions": {
+    "types": ["vite/client", "cypress", "node"],
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
     "target": "ES2022",
     "useDefineForClassFields": true,
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "module": "ESNext",
-    "types": ["vite/client"],
     "skipLibCheck": true,
 
     /* Bundler mode */
@@ -23,6 +25,5 @@
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
-  },
-  "include": ["src"]
+  }
 }
