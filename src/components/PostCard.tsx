@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import type { Post } from "../api/posts";
+import type { Post } from "../types/Post";
 
 export default function PostCard({ post }: { post: Post }) {
   return (

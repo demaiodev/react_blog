@@ -1,21 +1,6 @@
 import { API_BASE } from "../config";
-
-export type Post = {
-  id: number;
-  title: string;
-  content: string;
-  published_date?: string | null;
-  comments: Comment[];
-};
-
-export type Comment = {
-  id: number;
-  post: number;
-  author_name: string;
-  text: string;
-  created_date: string;
-  flagged: boolean;
-};
+import type { Post } from "../types/Post";
+import type { Comment } from "../types/Comment";
 
 async function handleResp(res: Response) {
   if (!res.ok) {
