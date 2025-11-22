@@ -27,13 +27,17 @@ export default function PostList({ posts }: { posts: Post[] }) {
 
           {/* Sort */}
           <div className="flex items-center gap-2">
-            <label className="text-sm text-slate-600 whitespace-nowrap">
+            <label
+              className="text-sm text-slate-600 whitespace-nowrap"
+              htmlFor="sort-controls"
+            >
               Sort by:
             </label>
             <select
+              id="sort-controls"
               value={sort}
               onChange={(e) => setSort(e.target.value as "new" | "old")}
-              className="border rounded px-2 py-1 text-sm bg-white"
+              className="border border-slate-400 rounded p-2 text-sm bg-white"
             >
               <option value="new">Newest</option>
               <option value="old">Oldest</option>

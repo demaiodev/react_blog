@@ -41,30 +41,30 @@ export default function PostView() {
       </article>
 
       <section>
-        <h2 className="font-semibold mb-6 text-lg">Add a Comment</h2>
+        <h2 className="font-semibold text-lg mb-2">Add a Comment</h2>
         <CreateComment postId={parseInt(id!)} />
       </section>
 
       <section>
-        <h3 className="text-lg font-semibold">Comments</h3>
-        <div className="mt-6 space-y-3">
+        <h3 className="text-lg font-semibold mb-2">Comments</h3>
+        <div className="space-y-3">
           {post && post.comments.length !== 0 ? (
             post.comments.map((c) => (
               <div
                 key={c.id}
-                className={
-                  c.flagged
-                    ? "bg-white p-3 rounded shadow-sm border border-red-600"
-                    : "bg-white p-3 rounded shadow-sm"
-                }
+                className={`p-3 rounded shadow-sm  ${
+                  c.flagged ? "bg-red-50 border border-red-600" : "bg-white"
+                }`}
               >
-                <div className="text-sm font-medium">
-                  {c.author_name}{" "}
-                  {c.flagged ? <span className="text-red-600">⚠</span> : ""}
-                </div>
+                <div className="text-sm font-medium">{c.author_name}</div>
                 <div className="text-sm text-slate-600">
                   {new Date(c.created_date).toLocaleString()}
                 </div>
+                {c.flagged && (
+                  <span className="text-red-600 text-xs flex items-center">
+                    ⚠ Flagged for review
+                  </span>
+                )}
                 <p className="mt-2 text-slate-700">{c.text}</p>
               </div>
             ))
