@@ -13,11 +13,11 @@ export default function Home() {
   });
 
   return (
-    <div>
+    <>
       {isLoading && <Loading label="Loading posts…" />}
       {isError && <ErrorBanner message={(error as Error).message} />}
 
       {!isLoading && !isError && <PostList posts={data ?? []} />}
-    </div>
+    </>
   );
 }

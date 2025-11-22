@@ -21,7 +21,7 @@ export default function Moderation() {
   if (isError) return <ErrorBanner message={(error as Error).message} />;
 
   return (
-    <div>
+    <section>
       <Link to="/" className="text-sm text-slate-800 hover:underline">
         ← Back
       </Link>
@@ -53,6 +53,6 @@ export default function Moderation() {
           No flagged comments.
         </div>
       )}
-    </div>
+    </section>
   );
 }

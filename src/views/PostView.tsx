@@ -24,7 +24,7 @@ export default function PostView() {
   if (isError) return <ErrorBanner message={(error as Error).message} />;
 
   return (
-    <div className="space-y-6">
+    <section className="space-y-6">
       <Link to="/" className="text-sm text-slate-800 hover:underline">
         ← Back
       </Link>
@@ -73,6 +73,6 @@ export default function PostView() {
           )}
         </div>
       </section>
-    </div>
+    </section>
   );
 }
