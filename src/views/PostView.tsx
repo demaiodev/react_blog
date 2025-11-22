@@ -28,7 +28,7 @@ export default function PostView() {
       <Link to="/" className="text-sm text-slate-500 hover:underline">
         ← Back
       </Link>
-      <article className="bg-white p-6 rounded shadow mt-4">
+      <article className="bg-white p-6 rounded shadow-md mt-4">
         <h1 className="text-2xl font-bold">{post?.title}</h1>
         <div className="mt-2 text-sm text-slate-500">
           {post?.published_date
