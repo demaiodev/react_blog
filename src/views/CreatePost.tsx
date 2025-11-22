@@ -4,6 +4,7 @@ import { createPost } from "../api/posts";
 import { useNavigate } from "react-router-dom";
 import Loading from "../components/Loading";
 import ErrorBanner from "../components/ErrorBanner";
+import { MIN_POST_LENGTH } from "../config";
 
 export default function CreatePost() {
   const [title, setTitle] = useState("");
@@ -44,6 +45,7 @@ export default function CreatePost() {
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               className="mt-1 block w-full border rounded px-3 py-2"
+              required
             />
           </div>
 
@@ -55,6 +57,7 @@ export default function CreatePost() {
               value={content}
               onChange={(e) => setContent(e.target.value)}
               className="mt-1 block w-full border rounded px-3 py-2 h-40"
+              minLength={MIN_POST_LENGTH}
             />
           </div>
 

@@ -5,3 +5,4 @@ export const API_BASE =
 export const STALE_TIME_MS = 1 * 60 * 1000; // 1 minute
 export const DEFAULT_SORT_TYPE = "new";
 export const DEFAULT_LAYOUT_TYPE = "list";
+export const MIN_POST_LENGTH = 25;
