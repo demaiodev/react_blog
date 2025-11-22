@@ -42,7 +42,7 @@ export default function Header() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="sm:hidden p-2 text-slate-800 hover:bg-slate-100 rounded-md shrink-0"
+          className="sm:hidden p-2 text-slate-800 hover:bg-slate-300 rounded-md shrink-0"
           aria-label="Toggle menu"
         >
           <svg
@@ -63,18 +63,18 @@ export default function Header() {
 
       {/* Mobile Navigation Menu */}
       {isOpen && (
-        <nav className="sm:hidden bg-slate-200 p-2 border border-slate-300 rounded-xl">
+        <nav className="sm:hidden bg-slate-200 border border-slate-300 rounded-xl m-2">
           <div className="max-w-5xl mx-auto px-4 py-2 space-y-1">
             <Link
               to="/"
-              className="block text-slate-800 hover:bg-slate-100 px-3 py-2 rounded-md text-sm"
+              className="block text-slate-800 hover:bg-slate-300 px-3 py-2 rounded-md text-sm"
               onClick={() => setIsOpen(false)}
             >
               Home
             </Link>
             <Link
               to="/moderation"
-              className="block text-slate-800 hover:bg-slate-100 px-3 py-2 rounded-md text-sm"
+              className="block text-slate-800 hover:bg-slate-300 px-3 py-2 rounded-md text-sm"
               onClick={() => setIsOpen(false)}
             >
               Moderation
@@ -84,7 +84,7 @@ export default function Header() {
               className="block bg-slate-800 text-white px-3 py-2 rounded-md hover:bg-slate-700 text-sm"
               onClick={() => setIsOpen(false)}
             >
-              + New Post
+              Create New Post
             </Link>
           </div>
         </nav>

@@ -13,16 +13,14 @@ export default function PostList({ posts }: { posts: Post[] }) {
 
   return (
     <div>
-      <div className="flex items-center justify-end mb-6">
+      <div className="flex items-center justify-between mb-6">
+        <h2 className="text-xl font-semibold">Posts</h2>
         <div className="flex items-center gap-2">
-          <label htmlFor="sort-select" className="text-sm text-slate-600">
-            Sort:
-          </label>
+          <label className="text-sm text-slate-600">Sort:</label>
           <select
-            id="sort-select"
             value={sort}
             onChange={(e) => setSort(e.target.value as "new" | "old")}
-            className="border rounded px-3 py-1 text-sm bg-white"
+            className="border rounded p-1 text-sm bg-white"
           >
             <option value="new">Newest</option>
             <option value="old">Oldest</option>
