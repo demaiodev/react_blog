@@ -25,7 +25,7 @@ export default function PostView() {
 
   return (
     <div className="space-y-6">
-      <Link to="/" className="text-sm text-slate-500 hover:underline">
+      <Link to="/" className="text-sm text-slate-800 hover:underline">
         ← Back
       </Link>
       <article className="bg-white p-6 rounded shadow-md mt-4">
@@ -69,7 +69,7 @@ export default function PostView() {
               </div>
             ))
           ) : (
-            <div className="text-sm text-slate-500">No comments yet.</div>
+            <div className="text-sm text-slate-600">No comments yet.</div>
           )}
         </div>
       </section>

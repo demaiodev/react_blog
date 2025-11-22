@@ -3,6 +3,7 @@ import { getFlaggedComments } from "../api/posts";
 import Loading from "../components/Loading";
 import ErrorBanner from "../components/ErrorBanner";
 import { STALE_TIME_MS } from "../config";
+import { Link } from "react-router";
 
 export default function Moderation() {
   const {
@@ -21,7 +22,10 @@ export default function Moderation() {
 
   return (
     <div>
-      <h1 className="text-xl font-semibold mb-6">Flagged Comments</h1>
+      <Link to="/" className="text-sm text-slate-800 hover:underline">
+        ← Back
+      </Link>
+      <h1 className="text-xl font-semibold my-6">Flagged Comments</h1>
 
       {comments && comments.length !== 0 ? (
         <div className="space-y-4">
